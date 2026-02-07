@@ -1,0 +1,55 @@
+[gd_scene format=4 uid="uid://di6n4hyvt622w"]
+
+[ext_resource type="Texture2D" uid="uid://bbvgnq0f35dvm" path="res://house.png" id="1_i6qxv"]
+[ext_resource type="Script" uid="uid://00cnk3yq0xca" path="res://area_2d.gd" id="2_35mfd"]
+[ext_resource type="PackedScene" uid="uid://b0u3euka5fbfd" path="res://Player.tscn" id="3_3l551"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g71sy"]
+texture = ExtResource("1_i6qxv")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_flf5n"]
+sources/0 = SubResource("TileSetAtlasSource_g71sy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_re4b8"]
+
+[node name="Outside" type="Node2D" unique_id=573859533]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1468628883]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(5.823821e-06, 0.4556988, 0.2931486, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1064480686]
+tile_map_data = PackedByteArray("AAAlAA4AAAAAAAAAAAAlAA8AAAAAAAEAAAAlABAAAAAAAAIAAAAlABEAAAAAAAMAAAAmAA4AAAABAAAAAAAmAA8AAAABAAEAAAAmABAAAAABAAIAAAAmABEAAAABAAMAAAAnAA4AAAACAAAAAAAnAA8AAAACAAEAAAAnABAAAAACAAIAAAAnABEAAAACAAMAAAAoAA4AAAADAAAAAAAoAA8AAAADAAEAAAAoABAAAAADAAIAAAAoABEAAAADAAMAAAA=")
+tile_set = SubResource("TileSet_flf5n")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1526385245]
+position = Vector2(625, 251)
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_35mfd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=419072315]
+shape = SubResource("RectangleShape2D_re4b8")
+
+[node name="Player" parent="." unique_id=1648009049 instance=ExtResource("3_3l551")]
+position = Vector2(562, 255)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

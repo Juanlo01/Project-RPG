@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b0u3euka5fbfd"]
+
+[ext_resource type="Script" uid="uid://cjmcxm6xnflpb" path="res://player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://bqjfw6ua1nhvm" path="res://Smile.png" id="1_xhfnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
+size = Vector2(32, 32)
+
+[node name="Player" type="CharacterBody2D" unique_id=1648009049]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_kpjcp")
+
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1976039373]
+shape = SubResource("RectangleShape2D_kpjcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1449708293]
+texture_filter = 1
+texture = ExtResource("1_xhfnw")

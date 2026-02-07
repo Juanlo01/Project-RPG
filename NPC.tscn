@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dqp0xy78lr5cr"]
+
+[ext_resource type="Script" uid="uid://rulkkompixn8" path="res://npc.gd" id="1_ll5ud"]
+[ext_resource type="Texture2D" uid="uid://bibphpa24qftf" path="res://Angry.png" id="1_twre2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ll5ud"]
+size = Vector2(32, 32)
+
+[node name="Body" type="CharacterBody2D" unique_id=1854734632]
+script = ExtResource("1_ll5ud")
+
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=2069228113]
+shape = SubResource("RectangleShape2D_ll5ud")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=947049781]
+texture_filter = 1
+texture = ExtResource("1_twre2")

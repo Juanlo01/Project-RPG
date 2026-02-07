@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://blnp8e8whsi7e"
+path="res://.godot/imported/Vase.dialogue-98b05ad4c0f632b925d11746e3bdfda4.tres"
+
+[deps]
+
+source_file="res://Vase.dialogue"
+dest_files=["res://.godot/imported/Vase.dialogue-98b05ad4c0f632b925d11746e3bdfda4.tres"]
+
+[params]
+
+defaults=true

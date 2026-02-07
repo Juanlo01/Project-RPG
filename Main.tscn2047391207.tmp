@@ -1,0 +1,149 @@
+[gd_scene format=4 uid="uid://b7jwjgeae3w2r"]
+
+[ext_resource type="Script" uid="uid://kgrogstmvvpj" path="res://main.gd" id="1_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://b0u3euka5fbfd" path="res://Player.tscn" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://csw4i163rsikb" path="res://menu.tscn" id="2_fos0i"]
+[ext_resource type="PackedScene" uid="uid://dqp0xy78lr5cr" path="res://NPC.tscn" id="3_r0du0"]
+[ext_resource type="Resource" uid="uid://drbydufvhsnr2" path="res://New.dialogue" id="6_03owx"]
+[ext_resource type="Texture2D" uid="uid://6fxlwb20t7ap" path="res://Flower_On_Vase.png" id="7_03owx"]
+[ext_resource type="Resource" uid="uid://blnp8e8whsi7e" path="res://Vase.dialogue" id="7_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://crrkq8kmnwwax" path="res://sample_floor.png" id="8_trn2v"]
+[ext_resource type="Resource" uid="uid://cn1fbnq0y6nme" path="res://Second.dialogue" id="8_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://d3g538myrle7o" path="res://brick_wall.png" id="10_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://jcfsfll8mwg" path="res://exit.png" id="11_20pc6"]
+[ext_resource type="Script" uid="uid://bj1o1eggbkmqc" path="res://exit.gd" id="12_5vvyt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
+size = Vector2(10.666672, 10.666668)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_03owx"]
+texture = ExtResource("8_trn2v")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20pc6"]
+texture = ExtResource("10_wkp8b")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vvyt"]
+texture = ExtResource("11_20pc6")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wkp8b"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_03owx")
+sources/1 = SubResource("TileSetAtlasSource_20pc6")
+sources/2 = SubResource("TileSetAtlasSource_5vvyt")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6i3y"]
+
+[node name="Main" type="Node2D" unique_id=2123952958]
+position = Vector2(-266, -160)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_cm0pq")
+
+[node name="Menu" parent="." unique_id=1738208652 instance=ExtResource("2_fos0i")]
+visible = false
+offset_top = 100.0
+offset_bottom = 434.0
+size_flags_horizontal = 0
+focus_mode = 2
+
+[node name="Garry" parent="." unique_id=1921604025 instance=ExtResource("3_r0du0")]
+position = Vector2(743.3333, 438)
+dialogueIndex = ExtResource("6_03owx")
+
+[node name="GarryArea" type="Area2D" parent="Garry" unique_id=910627837]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garry/GarryArea" unique_id=1640613996]
+z_index = 1
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_cm0pq")
+
+[node name="Garry2" parent="." unique_id=1854734632 instance=ExtResource("3_r0du0")]
+position = Vector2(414.6667, 491.33334)
+dialogueIndex = ExtResource("8_wkp8b")
+
+[node name="GarryArea" type="Area2D" parent="Garry2" unique_id=1433756361]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garry2/GarryArea" unique_id=121916323]
+z_index = 1
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_cm0pq")
+
+[node name="Vase" parent="." unique_id=956184371 instance=ExtResource("3_r0du0")]
+position = Vector2(481, 286)
+dialogueIndex = ExtResource("7_wkp8b")
+
+[node name="Sprite2D" parent="Vase" index="1" unique_id=947049781]
+texture = ExtResource("7_03owx")
+
+[node name="GarryArea" type="Area2D" parent="Vase" unique_id=536432308]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vase/GarryArea" unique_id=587095191]
+z_index = 1
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_cm0pq")
+
+[node name="Player" parent="." unique_id=1645286754 instance=ExtResource("1_glv2v")]
+position = Vector2(608, 492.00003)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1092100323]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_fos0i")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2110306969]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.84, 16.16)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2044199618]
+z_index = -1
+tile_map_data = PackedByteArray("AAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAAAAAALAAYAAAAAAAAAAAALAAUAAAAAAAAAAAALAAQAAAAAAAAAAAALAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAEAAUAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAMAAQAAAAAAAAAHAAIAAQAAAAAAAAAFAAgAAQAAAAAAAAAGAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAgAAAAAAAAAKAAgAAQAAAAAAAAALAAgAAQAAAAAAAAAMAAcAAQAAAAAAAAAMAAYAAQAAAAAAAAAMAAUAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAMAAQAAAAAAAAAMAAIAAQAAAAAAAAALAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_wkp8b")
+
+[node name="Exit" type="Area2D" parent="." unique_id=1937956837]
+position = Vector2(607.3333, 558.6666)
+scale = Vector2(3.5, 3.673)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("12_5vvyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=1233650466]
+shape = SubResource("RectangleShape2D_c6i3y")
+
+[connection signal="focus" from="Menu" to="Menu" method="_on_focus"]
+[connection signal="done_talking" from="Garry" to="Garry" method="_on_done_talking"]
+[connection signal="talking" from="Garry" to="Garry" method="_on_talking"]
+[connection signal="body_entered" from="Garry/GarryArea" to="Garry" method="_on_garry_area_body_entered"]
+[connection signal="body_exited" from="Garry/GarryArea" to="Garry" method="_on_garry_area_body_exited"]
+[connection signal="done_talking" from="Garry2" to="Garry2" method="_on_done_talking"]
+[connection signal="talking" from="Garry2" to="Garry2" method="_on_talking"]
+[connection signal="body_entered" from="Garry2/GarryArea" to="Garry2" method="_on_garry_area_body_entered"]
+[connection signal="body_exited" from="Garry2/GarryArea" to="Garry2" method="_on_garry_area_body_exited"]
+[connection signal="done_talking" from="Vase" to="Vase" method="_on_done_talking"]
+[connection signal="talking" from="Vase" to="Vase" method="_on_talking"]
+[connection signal="body_entered" from="Vase/GarryArea" to="Vase" method="_on_garry_area_body_entered"]
+[connection signal="body_exited" from="Vase/GarryArea" to="Vase" method="_on_garry_area_body_exited"]
+[connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
+[connection signal="area_exited" from="Player" to="Player" method="_on_area_exited"]
+[connection signal="dialogue_status" from="Player" to="Player" method="_on_dialogue_status"]
+[connection signal="npc_name" from="Player" to="Player" method="_on_npc_name"]
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
+
+[editable path="Vase"]

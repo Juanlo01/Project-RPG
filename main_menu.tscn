@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://n6h0jx48r1v4"]
+
+[ext_resource type="Theme" uid="uid://djnxq85yjlfoo" path="res://my_theme.tres" id="1_06t4h"]
+
+[node name="CenterContainer" type="CenterContainer" unique_id=1738208652]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_06t4h")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=923927707]
+layout_mode = 2
+theme = ExtResource("1_06t4h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1808268248]
+layout_mode = 2
+theme = ExtResource("1_06t4h")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=2052786752]
+layout_mode = 2
+theme = ExtResource("1_06t4h")
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=195507146]
+layout_mode = 2
+theme = ExtResource("1_06t4h")
+text = "Bag"
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1857232160]
+layout_mode = 2
+text = "Party"
+
+[node name="Button3" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1369224114]
+layout_mode = 2
+text = "Settings"
+
+[node name="Button4" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1108392548]
+layout_mode = 2
+text = "Exit"
