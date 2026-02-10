@@ -46,8 +46,9 @@ script = ExtResource("1_cm0pq")
 player = NodePath("Player")
 Garry = NodePath("Garry")
 
-[node name="Menu" parent="." unique_id=1738208652 instance=ExtResource("2_fos0i")]
+[node name="NotMenu" parent="." unique_id=1738208652 instance=ExtResource("2_fos0i")]
 visible = false
+visibility_layer = 16
 offset_top = 100.0
 offset_bottom = 434.0
 size_flags_horizontal = 0
@@ -94,7 +95,7 @@ position = Vector2(486.66666, 482)
 dialogueIndex = ExtResource("10_20pc6")
 player = NodePath("../Player")
 
-[connection signal="focus" from="Menu" to="Menu" method="_on_focus"]
+[connection signal="focus" from="NotMenu" to="NotMenu" method="_on_focus"]
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
 [connection signal="area_exited" from="Player" to="Player" method="_on_area_exited"]

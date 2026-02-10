@@ -1,7 +1,7 @@
 extends Node
 
 # @export allows its modding on the inspector
-@onready var menu  : CenterContainer = get_node("/root/Main/Menu")
+@onready var menu  : CenterContainer = get_node("/root/Global/Menu")
 @onready var player = get_node("/root/Main/Player")
 
 signal my_npc

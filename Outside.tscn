@@ -33,6 +33,7 @@ sources/0 = SubResource("TileSetAtlasSource_g71sy")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1468628883]
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 color = Color(5.823821e-06, 0.4556988, 0.2931486, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1064480686]
