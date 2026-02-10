@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dce2y6c3nili7"]
+
+[ext_resource type="PackedScene" uid="uid://b0u3euka5fbfd" path="res://Player.tscn" id="1_37kl0"]
+[ext_resource type="Resource" uid="uid://dw6fmff6ionls" path="res://First.dialogue" id="2_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://dqp0xy78lr5cr" path="res://NPC.tscn" id="2_8uh7m"]
+[ext_resource type="Resource" uid="uid://cn1fbnq0y6nme" path="res://Second.dialogue" id="3_ppyta"]
+
+[node name="Test" type="Node2D" unique_id=739034425]
+
+[node name="Body" parent="." unique_id=1854734632 node_paths=PackedStringArray("player") instance=ExtResource("2_8uh7m")]
+position = Vector2(135, 36.666668)
+dialogueIndex = ExtResource("2_6uqi0")
+player = NodePath("../Player")
+
+[node name="Body2" parent="." unique_id=1587246316 node_paths=PackedStringArray("player") instance=ExtResource("2_8uh7m")]
+position = Vector2(136, 114)
+dialogueIndex = ExtResource("3_ppyta")
+player = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=1648009049 instance=ExtResource("1_37kl0")]
+position = Vector2(60, 39)
+
+[connection signal="done_talking" from="Body" to="Body" method="_on_done_talking"]
+[connection signal="talking" from="Body" to="Body" method="_on_talking"]
+[connection signal="body_entered" from="Body/Area2D" to="Player" method="_on_area_2d_body_entered" binds= [NodePath("../Body")]]
+[connection signal="body_exited" from="Body/Area2D" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="done_talking" from="Body2" to="Body2" method="_on_done_talking"]
+[connection signal="talking" from="Body2" to="Body2" method="_on_talking"]
+[connection signal="body_entered" from="Body2/Area2D" to="Player" method="_on_area_2d_body_entered" binds= [NodePath("../Body2")]]
+[connection signal="body_exited" from="Body2/Area2D" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="dialogue_status" from="Player" to="Player" method="_on_dialogue_status"]
+
+[editable path="Body"]
+[editable path="Body2"]

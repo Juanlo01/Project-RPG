@@ -6,12 +6,22 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ll5ud"]
 size = Vector2(32, 32)
 
-[node name="Body" type="CharacterBody2D" unique_id=1854734632]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1jv5"]
+
+[node name="NPC" type="CharacterBody2D" unique_id=1854734632]
 script = ExtResource("1_ll5ud")
 
-[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=2069228113]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2069228113]
 shape = SubResource("RectangleShape2D_ll5ud")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=947049781]
 texture_filter = 1
 texture = ExtResource("1_twre2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=629110369]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=683023435]
+scale = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_u1jv5")
