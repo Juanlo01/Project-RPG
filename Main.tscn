@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://kgrogstmvvpj" path="res://main.gd" id="1_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://b0u3euka5fbfd" path="res://Player.tscn" id="1_glv2v"]
-[ext_resource type="PackedScene" uid="uid://csw4i163rsikb" path="res://menu.tscn" id="2_fos0i"]
 [ext_resource type="PackedScene" uid="uid://dqp0xy78lr5cr" path="res://NPC.tscn" id="3_r0du0"]
 [ext_resource type="Resource" uid="uid://dw6fmff6ionls" path="res://First.dialogue" id="4_5vvyt"]
 [ext_resource type="Texture2D" uid="uid://crrkq8kmnwwax" path="res://sample_floor.png" id="8_trn2v"]
@@ -40,21 +39,12 @@ sources/2 = SubResource("TileSetAtlasSource_5vvyt")
 size = Vector2(10.666672, 10.666668)
 
 [node name="Main" type="Node2D" unique_id=2123952958 node_paths=PackedStringArray("player", "Garry")]
-position = Vector2(-266, -160)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_cm0pq")
 player = NodePath("Player")
 Garry = NodePath("Garry")
 
-[node name="NotMenu" parent="." unique_id=1738208652 instance=ExtResource("2_fos0i")]
-visible = false
-visibility_layer = 16
-offset_top = 100.0
-offset_bottom = 434.0
-size_flags_horizontal = 0
-focus_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2110306969]
+[node name="Background" type="ColorRect" parent="." unique_id=2110306969]
 z_index = -1
 offset_right = 40.0
 offset_bottom = 40.0
@@ -64,11 +54,12 @@ color = Color(0, 0, 0, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2044199618]
 z_index = -1
+position = Vector2(-214.66667, -114)
 tile_map_data = PackedByteArray("AAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAAAAAALAAYAAAAAAAAAAAALAAUAAAAAAAAAAAALAAQAAAAAAAAAAAALAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAEAAUAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAMAAQAAAAAAAAAHAAIAAQAAAAAAAAAFAAgAAQAAAAAAAAAGAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAgAAAAAAAAAKAAgAAQAAAAAAAAALAAgAAQAAAAAAAAAMAAcAAQAAAAAAAAAMAAYAAQAAAAAAAAAMAAUAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAMAAQAAAAAAAAAMAAIAAQAAAAAAAAALAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_wkp8b")
 
 [node name="Exit" type="Area2D" parent="." unique_id=1937956837]
-position = Vector2(607.3334, 558.6666)
+position = Vector2(393.3333, 444.6667)
 scale = Vector2(3.5, 3.673)
 collision_layer = 2
 collision_mask = 2
@@ -78,7 +69,7 @@ script = ExtResource("12_5vvyt")
 shape = SubResource("RectangleShape2D_c6i3y")
 
 [node name="Player" parent="." unique_id=1645286754 instance=ExtResource("1_glv2v")]
-position = Vector2(608, 492.00012)
+position = Vector2(393.3333, 376)
 dialogueIndex = ExtResource("4_5vvyt")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player" unique_id=1092100323]
@@ -86,16 +77,15 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_fos0i")
 
 [node name="Garry" parent="." unique_id=1921604025 node_paths=PackedStringArray("player") instance=ExtResource("3_r0du0")]
-position = Vector2(678, 488.66666)
+position = Vector2(488.66666, 326.66666)
 dialogueIndex = ExtResource("4_5vvyt")
 player = NodePath("../Player")
 
 [node name="Garry2" parent="." unique_id=1854734632 node_paths=PackedStringArray("player") instance=ExtResource("3_r0du0")]
-position = Vector2(486.66666, 482)
+position = Vector2(141.99997, 341.3333)
 dialogueIndex = ExtResource("10_20pc6")
 player = NodePath("../Player")
 
-[connection signal="focus" from="NotMenu" to="NotMenu" method="_on_focus"]
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
 [connection signal="area_exited" from="Player" to="Player" method="_on_area_exited"]

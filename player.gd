@@ -44,6 +44,7 @@ func _on_area_2d_body_entered(body: Node2D, extra_arg_0: NodePath) -> void: # Wh
 	onArea = true
 	print("Inside range")
 	print(npc)
+	Global.combat_start.emit()
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	onArea = false

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://oieqwnemxxqo"]
+
+[ext_resource type="Script" uid="uid://bnspsrvxf45i0" path="res://combat.gd" id="1_h3bse"]
+[ext_resource type="Texture2D" uid="uid://cptfeqsn7cjl0" path="res://Clover.png" id="2_vvyul"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tppsp"]
+size = Vector2(38, 64)
+
+[node name="Combat" type="Node2D" unique_id=1663764441]
+scale = Vector2(4, 4)
+script = ExtResource("1_h3bse")
+
+[node name="Background" type="ColorRect" parent="." unique_id=394784011]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1360527989]
+position = Vector2(132.75, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=261379138]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_tppsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=213036152]
+texture_filter = 1
+texture = ExtResource("2_vvyul")

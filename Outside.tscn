@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bbvgnq0f35dvm" path="res://house.png" id="1_i6qxv"]
 [ext_resource type="Script" uid="uid://00cnk3yq0xca" path="res://area_2d.gd" id="2_35mfd"]
 [ext_resource type="PackedScene" uid="uid://b0u3euka5fbfd" path="res://Player.tscn" id="3_3l551"]
+[ext_resource type="PackedScene" uid="uid://dqp0xy78lr5cr" path="res://NPC.tscn" id="4_3l551"]
+[ext_resource type="Script" uid="uid://cd8mrgah8xcpu" path="res://enemy.gd" id="5_g71sy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g71sy"]
 texture = ExtResource("1_i6qxv")
@@ -51,6 +53,13 @@ script = ExtResource("2_35mfd")
 shape = SubResource("RectangleShape2D_re4b8")
 
 [node name="Player" parent="." unique_id=1648009049 instance=ExtResource("3_3l551")]
-position = Vector2(562, 255)
+position = Vector2(574, 254)
+
+[node name="Enemy" parent="." unique_id=1854734632 instance=ExtResource("4_3l551")]
+position = Vector2(472, 253)
+script = ExtResource("5_g71sy")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy/Area2D" to="Player" method="_on_area_2d_body_entered" binds= [NodePath("../Enemy")]]
+
+[editable path="Enemy"]
