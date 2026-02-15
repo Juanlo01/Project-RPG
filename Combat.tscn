@@ -16,7 +16,7 @@ offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1360527989]
-position = Vector2(132.75, 80)
+position = Vector2(142, 54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=261379138]
 position = Vector2(2, 1)

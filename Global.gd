@@ -3,6 +3,8 @@ extends Node
 # @export allows its modding on the inspector
 @onready var menu  : CenterContainer = get_node("/root/Global/Menu")
 @onready var combat_ui : CenterContainer = get_node("/root/Global/Combat_UI")
+@onready var player_combat_ui : PanelContainer = get_node("/root/Global/Player_Combat_UI")
+@onready var enemy_name = $"%Label"
 @onready var player = get_node("/root/Main/Player")
 
 var combat_scene = preload("res://Combat.tscn")
@@ -34,10 +36,13 @@ func _on_dialogue_ended(_dialogue):
 	onDialogue = false
 	npcName.done_talking.emit()
 
-func _on_combat_start():
+func _on_combat_start(enemy_name):
 	get_tree().current_scene.call_deferred("add_child", combat_instance) # Adds Combat scene to current scene
 	combat_ui.visible = !combat_ui.visible
-	
+	player_combat_ui.visible = !player_combat_ui.visible
+	player_combat_ui.grab_focus.call_deferred()
+	player_combat_ui.focus.emit()
+	%Label.text = enemy_name
 
 func _ready(): # Called when Game Starts
 	#my_signal.connect(_on_my_signal) # N/A

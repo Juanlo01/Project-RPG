@@ -44,7 +44,12 @@ func _on_area_2d_body_entered(body: Node2D, extra_arg_0: NodePath) -> void: # Wh
 	onArea = true
 	print("Inside range")
 	print(npc)
-	Global.combat_start.emit()
+	if npc.is_in_group("Enemy") && !npc.is_in_group("NPC"):
+		Global.combat_start.emit(npc.name)
+	elif npc.is_in_group("Enemy") && npc.is_in_group("NPC"):
+		npc.talking.emit()
+		canMove = !canMove
+		
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	onArea = false

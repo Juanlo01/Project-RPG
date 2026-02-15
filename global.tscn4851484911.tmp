@@ -71,8 +71,7 @@ script = ExtResource("6_74nqk")
 layout_mode = 2
 columns = 2
 
-[node name="Bash" type="Button" parent="Player_Combat_UI/GridContainer" unique_id=1007231531]
-unique_name_in_owner = true
+[node name="Button" type="Button" parent="Player_Combat_UI/GridContainer" unique_id=1007231531]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 text = "Bash"

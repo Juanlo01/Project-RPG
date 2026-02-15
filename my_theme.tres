@@ -3,7 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://b8rjnu7f5habn" path="res://button.tres" id="1_pvayc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djh02"]
-content_margin_bottom = 20.0
+content_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hduts"]
 

@@ -76,12 +76,12 @@ dialogueIndex = ExtResource("4_5vvyt")
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_fos0i")
 
-[node name="Garry" parent="." unique_id=1921604025 node_paths=PackedStringArray("player") instance=ExtResource("3_r0du0")]
+[node name="Garry" parent="." unique_id=1921604025 node_paths=PackedStringArray("player") groups=["NPC"] instance=ExtResource("3_r0du0")]
 position = Vector2(488.66666, 326.66666)
 dialogueIndex = ExtResource("4_5vvyt")
 player = NodePath("../Player")
 
-[node name="Garry2" parent="." unique_id=1854734632 node_paths=PackedStringArray("player") instance=ExtResource("3_r0du0")]
+[node name="Garry2" parent="." unique_id=1854734632 node_paths=PackedStringArray("player") groups=["NPC"] instance=ExtResource("3_r0du0")]
 position = Vector2(141.99997, 341.3333)
 dialogueIndex = ExtResource("10_20pc6")
 player = NodePath("../Player")

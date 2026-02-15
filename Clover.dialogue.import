@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bx4x6n6igvt8f"
+path="res://.godot/imported/Clover.dialogue-54500d491f3baf3d8b6c19b283f4076b.tres"
+
+[deps]
+
+source_file="res://Clover.dialogue"
+dest_files=["res://.godot/imported/Clover.dialogue-54500d491f3baf3d8b6c19b283f4076b.tres"]
+
+[params]
+
+defaults=true
